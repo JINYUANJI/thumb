@@ -95,7 +95,7 @@ public class ThumbServiceImpl extends ServiceImpl<ThumbMapper, Thumb> implements
         User loginUser = userService.getLoginUser(request);
         // 加锁
         synchronized (loginUser.getId().toString().intern()) {
-
+//123
             // 编程式事务
             return transactionTemplate.execute(status -> {
                 Long blogId = doThumbRequest.getBlogId();
