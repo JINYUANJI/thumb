@@ -1,0 +1,47 @@
+spring:
+  application.name: thumb-backend
+  mvc:
+    servlet:
+      path: /api
+  profiles:
+    active: druid
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+        # \u4E3B\u5E93\u6570\u636E\u6E90
+    url: jdbc:mysql://localhost:3306/thumb_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: root
+  data:
+    # Redis 配置
+    redis:
+      database: 0
+      host: 127.0.0.1
+#      password: 123456
+      timeout: 5000
+      port: 6379
+
+# mybatis-plus
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # \u4E0D\u652F\u6301\u591A\u5305, \u5982\u6709\u9700\u8981\u53EF\u5728\u6CE8\u89E3\u914D\u7F6E \u6216 \u63D0\u5347\u626B\u5305\u7B49\u7EA7
+  # \u4F8B\u5982 com.**.**.mapper
+  mapperPackage: com.ruoyi.**.mapper
+  # \u5BF9\u5E94\u7684 XML \u6587\u4EF6\u4F4D\u7F6E
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+  # \u5B9E\u4F53\u626B\u63CF\uFF0C\u591A\u4E2Apackage\u7528\u9017\u53F7\u6216\u8005\u5206\u53F7\u5206\u9694
+  typeAliasesPackage: com.xuanapi.**.model
+knife4j:
+  enable: false
+  setting:
+    language: zh_cn
+server:
+  port: 8080
+# \u65E5\u5FD7\u914D\u7F6E
+logging:
+  level:
+    com.ruoyi: debug
+    org.springframework: warn
+
