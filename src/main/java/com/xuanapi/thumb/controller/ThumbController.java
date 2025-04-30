@@ -26,7 +26,7 @@ public class ThumbController {
         return ResultUtils.success(success) ;
     }
 
-
+    @Operation(description = "取消点赞功能")
     @PostMapping("/undo")
     public BaseResponse<Boolean> undoThumb(@RequestBody DoThumbRequest doThumbRequest, HttpServletRequest request) {
         Boolean success = thumbService.undoThumb(doThumbRequest, request);
